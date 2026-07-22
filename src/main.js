@@ -36,4 +36,3 @@ form.addEventListener("submit", async (e) => {
     hideLoader();
   }
 });
-..
