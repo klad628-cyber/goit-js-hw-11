@@ -1,55 +1,38 @@
-"use strict";
-
 import SimpleLightbox from "simplelightbox";
 import "simplelightbox/dist/simple-lightbox.min.css";
 
-const galleryList = document.querySelector(".gallery"),
-  loader = document.querySelector(".loader");
+const lightbox = new SimpleLightbox(".gallery a", {
+  captions: true,
+  captionDelay: 250,
+});
 
 export function createGallery(images) {
+  const galleryContainer = document.querySelector(".gallery");
+  clearGallery();
   const markup = images
     .map((image) => {
       return `<li class="gallery-item">
-<a href="${image.largeImageURL}">
-<img src="${image.webformatURL}" alt="${image.tags}" width="360" height="152">
-</a>
-<ul class="image-info-list">
-<li class="image-info-item">Likes
-<p>${image.likes}</p>
-</li>
-<li class="image-info-item">Views
-<p>${image.views}</p>
-</li>
-<li class="image-info-item">Comments
-<p>${image.comments}</p>
-</li>
-<li class="image-info-item">Downloads
-<p>${image.downloads}</p>
-</li>
-</ul>
-</li>`;
+    <a href="${image.largeImageURL}" class="gallery-link" target="_blank">
+      <img src="${image.webformatURL}" alt="${image.tags}" loading="lazy">
+    </a>
+  </li>`;
     })
     .join("");
-
-  galleryList.innerHTML = markup;
-
-  gallery.refresh();
+  galleryContainer.innerHTML = markup;
+  lightbox.refresh();
 }
 
 export function clearGallery() {
-  galleryList.innerHTML = "";
+  const galleryContainer = document.querySelector(".gallery");
+  galleryContainer.innerHTML = "";
 }
 
 export function showLoader() {
-  loader.classList.add("load");
+  const loader = document.getElementById("loader");
+  if (loader) loader.classList.remove("hidden");
 }
 
 export function hideLoader() {
-  loader.classList.remove("load");
+  const loader = document.getElementById("loader");
+  if (loader) loader.classList.add("hidden");
 }
-
-let gallery = new SimpleLightbox(".gallery a", {
-  captions: true,
-  captionsData: "alt",
-  captionDelay: 250,
-});
