@@ -2,17 +2,12 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vanilla App Template</title>
-    <link rel="stylesheet" href="./css/styles.css" />
-    <script type="module" crossorigin src="/assets/index-Dm2wqP8j.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/index-Dr4k8ETB.css">
+    <title>Image Search</title>
+    <script type="module" crossorigin src="/goit-js-hw-11/assets/index-CIn39pDi.js"></script>
+    <link rel="stylesheet" crossorigin href="/goit-js-hw-11/assets/index-BjgUDy-V.css">
   </head>
   <body>
-    <header class="header"></header>
-
-    <main>
+    <div id="app">
       <form class="form">
         <label>
           <input
@@ -24,13 +19,8 @@
         </label>
         <button type="submit">Search</button>
       </form>
-
+      <div id="loader" class="loader hidden"></div>
       <ul class="gallery"></ul>
-
-      <span class="loader"></span>
-    </main>
-
-    <footer class="footer"></footer>
-
+    </div>
   </body>
 </html>

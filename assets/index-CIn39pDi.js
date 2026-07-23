@@ -33,4 +33,4 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
 </li>
 </ul>
 </li>`).join("");jt.innerHTML=o,ni.refresh()}function ti(){jt.innerHTML=""}function oi(){Wt.classList.add("load")}function Me(){Wt.classList.remove("load")}let ni=new Qn(".gallery a",{captions:!0,captionsData:"alt",captionDelay:250});const ii=document.querySelector("form"),si=document.querySelector('input[type="text"]');ii.addEventListener("submit",ri);function ri(t){t.preventDefault(),ti();const o=si.value.trim();o&&(oi(),Gn(o).then(n=>{if(n.length)Me(),ei(n);else{Me(),gt();return}}).catch(n=>{Me(),gt()}))}function gt(){Kt.show({position:"topRight",theme:"dark",backgroundColor:"#EF4040",message:"Sorry, there are no images matching your search query. Please, try again!",messageColor:"#fff",iconUrl:"./img/error.svg",messageSize:"16px"})}
-//# sourceMappingURL=index-Dm2wqP8j.js.map
+//# sourceMappingURL=index-CIn39pDi.js.map
