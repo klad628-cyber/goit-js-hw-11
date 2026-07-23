@@ -2,15 +2,11 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vanilla App Template</title>
-    <link rel="stylesheet" href="./css/styles.css" />
+    <title>Image Search</title>
+    <link rel="stylesheet" href="./assets/style.css" />
   </head>
   <body>
-    <header class="header"></header>
-
-    <main>
+    <div id="app">
       <form class="form">
         <label>
           <input
@@ -22,14 +18,9 @@
         </label>
         <button type="submit">Search</button>
       </form>
-
+      <div id="loader" class="loader hidden"></div>
       <ul class="gallery"></ul>
-
-      <span class="loader"></span>
-    </main>
-
-    <footer class="footer"></footer>
-
+    </div>
     <script type="module" src="./main.js"></script>
   </body>
 </html>
