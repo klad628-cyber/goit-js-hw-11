@@ -9,39 +9,41 @@ import iziToast from "izitoast";
 import "izitoast/dist/css/iziToast.min.css";
 
 const form = document.querySelector(".form");
-const loader = document.getElementById("loader");
 
 form.addEventListener("submit", async (e) => {
   e.preventDefault();
+
   const query = form.elements["search-text"].value.trim();
+
   if (!query) {
     iziToast.error({
-      title: "Error",
       message: "Please enter a search term",
       position: "topRight",
     });
     return;
   }
+
   clearGallery();
   showLoader();
+
   try {
-    const responseData = await getImagesByQuery(query);
-    if (responseData.hits && responseData.hits.length > 0) {
-      createGallery(responseData.hits);
-    } else {
-      iziToast.info({
-        title: "Info",
-        message: "Sorry, there are no images matching your search query. Please try again!",
+    const data = await getImagesByQuery(query);
+
+    if (data.hits.length === 0) {
+      iziToast.error({
+        message:
+          "Sorry, there are no images matching your search query. Please try again!",
         position: "topRight",
       });
+      return;
     }
-  } catch (err) {
+
+    createGallery(data.hits);
+  } catch {
     iziToast.error({
-      title: "Error",
-      message: "Failed to load images",
+      message: "Failed to load images. Please try again later.",
       position: "topRight",
     });
-    console.error(err);
   } finally {
     hideLoader();
   }
